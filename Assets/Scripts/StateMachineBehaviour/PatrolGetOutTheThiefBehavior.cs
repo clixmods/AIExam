@@ -2,26 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolReplaceDiamondBehavior : StateMachineBehaviour
+public class PatrolGetOutTheThiefBehavior : PatrolStateMachineBehaviour
 {
+   
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        _patrol.GrabStealerAndPiedAuQ();
+        _movableAgent.speed = 5;
+    }
+
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
     //    
     //}
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        animator.GetComponent<Patrol>().ReplaceDiamond();
-        animator.GetComponent<MovableAgent>().speed = 4;
-    }
-
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {    
-        animator.GetComponent<Patrol>().DropDiamond();
-    }
+    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

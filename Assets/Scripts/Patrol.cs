@@ -10,9 +10,10 @@ public class Patrol : MonoBehaviour
     private Animator _animator;
     private Transform _stealer;
     [SerializeField] private bool isAlerted;
-    private static readonly int DistanceWithStealerID = Animator.StringToHash("DistanceWithStealer");
     [SerializeField] private Transform lecoin;
     [SerializeField] private Transform atterisage;
+    
+    private static readonly int DistanceWithStealerID = Animator.StringToHash("DistanceWithStealer");
     private static readonly int DiamondNeedToBeReplacedID = Animator.StringToHash("DiamondNeedToBeReplaced");
     private static readonly int IsMovingID = Animator.StringToHash("IsMoving");
 
@@ -45,7 +46,6 @@ public class Patrol : MonoBehaviour
         _stealer.GetComponent<MovableAgent>().enabled = false;
         _stealer.GetComponent<ThiefSteal>().enabled = false;
         _movableAgent.SetDestination(lecoin.position);
-        Debug.Log(Vector2.Distance(transform.position, lecoin.position));
         if (Vector2.Distance(transform.position, lecoin.position) < 3) 
         {
             _stealer.position = atterisage.position;

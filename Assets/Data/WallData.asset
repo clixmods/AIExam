@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: {fileID: 11400000, guid: 2fb77a153e323e1478268aab9115d82f, type: 2}
   isValidTile: 0
-  cost: 1
+  cost: 2
